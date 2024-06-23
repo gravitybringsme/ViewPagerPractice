@@ -5,6 +5,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.google.android.material.tabs.TabLayout
 import com.neppplus.viewpagerpractice.adapters.MainViewPagerAdapter
 
 class MainActivity : AppCompatActivity() {
@@ -25,7 +26,9 @@ class MainActivity : AppCompatActivity() {
         val mainViewPager = findViewById<androidx.viewpager.widget.ViewPager>(R.id.mainViewPager)
         mainViewPager.adapter = mViewPagerAdapter
         // 페이지가 많아지면 간단하게 부드럽도록 지원하는 기능
-        mainViewPager.offscreenPageLimit = 5
+        mainViewPager.offscreenPageLimit = 3
 
+        //탭레이아웃을 -> 뷰페이저와 연결
+        val myTabLayout = findViewById<TabLayout>(R.id.myTabLayout).setupWithViewPager(mainViewPager)
     }
 }
